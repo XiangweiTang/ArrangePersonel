@@ -10,6 +10,8 @@ namespace ArrangePersonel
     {
         public string InputPath { get; set; } = @"";
         public string OutputPath { get; set; } = @"";
+        public string SetPath { get; set; } = @"";
+        HashSet<string> Set = new HashSet<string>();
         public void Run()
         {
             string inputList = InputPath;
@@ -18,13 +20,14 @@ namespace ArrangePersonel
             //File.WriteAllLines(inputList, personelList.Select(x => x.Content));
             var personelList = File.ReadLines(inputList).Select(x => new Line(x)).ToList();
             var dict = ArrangeTime(personelList);
+            Set = new HashSet<string>(File.ReadAllText(SetPath).Split(','));
             File.WriteAllLines(outputPath, dict.Select(x => x.Key + "\t" + string.Join(" ", x.Value)));
         }
         private Dictionary<string, List<string>> ArrangeTime(List<Line> personelList)
         {
-            Dictionary<string, List<string>> dateDict = Constants.FULL_SET.ToDictionary(x => x, x => new List<string>());
+            Dictionary<string, List<string>> dateDict = Set.ToDictionary(x => x, x => new List<string>());
 
-            Dictionary<string, int> setDict = Constants.FULL_SET.ToDictionary(x => x, x => 0);
+            Dictionary<string, int> setDict = Set.ToDictionary(x => x, x => 0);
 
             while (personelList.Count > 0)
             {
