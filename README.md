@@ -1,7 +1,10 @@
 # ArrangePersonel
 
 Usage:
->ArrangePersonel.exe [SetPath] [InputPath] [OutputPath]
+build the program, then you will find ArrangePersonel.dll in ArrangePersonel\bin\Debug\netcoreapp2.1
+
+Run the following command.
+>dotnet ArrangePersonel.dll [SetPath] [InputPath] [OutputPath]
 
 You can find the test case files in the "TestCase" folder: "Set.txt" and "Input.txt".
 
