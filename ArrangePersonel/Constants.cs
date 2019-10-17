@@ -8,10 +8,12 @@ namespace ArrangePersonel
     {
         public static readonly HashSet<string> FULL_SET = new HashSet<string>
         {
-            "0_0","0_1",
-            "1_0","1_1",
-            "2_0","2_1",
-            "3_0","3_1"
+            //"14_A","14_P", "14_N",
+            "15_A","15_P", "15_N",
+            "16_A","16_P", "16_N",
+            "17_A","17_P", "17_N",
+            "18_A","18_P", "18_N",
+            //"19_A","19_P", "19_N",
         };
     }
 }

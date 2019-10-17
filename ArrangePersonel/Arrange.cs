@@ -8,12 +8,15 @@ namespace ArrangePersonel
 {
     class Arrange
     {
+        public string InputPath { get; set; } = @"";
+        public string OutputPath { get; set; } = @"";
         public void Run()
         {
-            string inputList = @"input.txt";
-            string outputPath = @"output.txt";
-            var personelList = Enumerable.Range(0, 50).Select(x => GenerateRandomLine.SetLine(x)).ToList();
-            File.WriteAllLines(inputList, personelList.Select(x => x.Content));
+            string inputList = InputPath;
+            string outputPath = OutputPath;
+            //var personelList = Enumerable.Range(0, 50).Select(x => GenerateRandomLine.SetLine(x)).ToList();
+            //File.WriteAllLines(inputList, personelList.Select(x => x.Content));
+            var personelList = File.ReadLines(inputList).Select(x => new Line(x)).ToList();
             var dict = ArrangeTime(personelList);
             File.WriteAllLines(outputPath, dict.Select(x => x.Key + "\t" + string.Join(" ", x.Value)));
         }

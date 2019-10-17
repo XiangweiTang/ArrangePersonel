@@ -24,9 +24,9 @@ namespace ArrangePersonel
             foreach (string s in applicable.Split(' '))
                 ApplicableSet.Add(s);
             string notApplicable = split[2];
-            var rest = Constants.FULL_SET.Except(notApplicable.Split(' '));
-            foreach (string s in rest)
-                ApplicableSet.Add(s);
+            //var rest = Constants.FULL_SET.Except(notApplicable.Split(' '));
+            //foreach (string s in rest)
+            //    ApplicableSet.Add(s);
         }
         
     }
